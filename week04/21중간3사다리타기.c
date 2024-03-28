@@ -6,15 +6,11 @@ int main(){
     scanf("%d %d",&n,&m);
     scanf("%d",&start);
 
-    getchar();
-
-    int a[100][100];
+    char a[101][101];
     int j=0;
 
     for(int i=0;i<m;i++){
-        j=0;
-        while((a[i][j]=getchar())!='\n') {j++;}
-        a[i][j]='\0';
+        scanf("%s", a[i]);
     }
   
     for(int i=0;i<m;i++){
@@ -28,7 +24,7 @@ int main(){
         else if(start==0)
             if(a[i][start]=='1') start+=1;
 
-        //printf("%d go\n",start);
+        // printf("%d go\n",start);
     }
     
     printf("%d",start);

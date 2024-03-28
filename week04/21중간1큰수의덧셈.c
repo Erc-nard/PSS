@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 int main(){
     char num1[1000];
     char num2[1000];
@@ -6,8 +8,11 @@ int main(){
     int i=0,j=0,count=0;
     int carry=0;
 
-    while((num1[i]=getchar())!='\n') {i++;} num1[i]='\0';
-    while((num2[j]=getchar())!='\n') {j++;} num2[j]='\0';
+    scanf("%s",num1);
+    scanf("%s",num2);
+
+    i=strlen(num1);
+    j=strlen(num2);
 
  
     --i;--j;

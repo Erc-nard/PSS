@@ -23,5 +23,5 @@ void pick(int n,int m,int picked[],int topick){ //n>최대숫자 m>list크기 to
 int main(){
     int picked[4];
     pick(7,4,picked,4);
-    return 0;
+    return 0; 
 }

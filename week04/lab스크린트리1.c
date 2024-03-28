@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
+#include <stdio.h> 
 
 #define MAX_LEVEL 5
 #define MAX_WIDTH 70

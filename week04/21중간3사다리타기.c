@@ -10,7 +10,7 @@ int main(){
     int j=0;
 
     for(int i=0;i<m;i++){
-        scanf("%s", a[i]);
+        scanf("%s", a[i]); //조심!!!!!!!!
     }
   
     for(int i=0;i<m;i++){

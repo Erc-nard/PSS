@@ -13,7 +13,7 @@ void pick(int n, int* plama,int* bucket, int bucketSize, int k) { //중복 조�
     for (i = 0; i < n; i++) {
         if ((k - plama[i]) >= 0) {
             if (bucketSize > 0)
-                if( plama[i] < plama[bucket[bucketSize-1]]) continue;
+                if( plama[i] > plama[bucket[bucketSize-1]]) continue;
             bucket[bucketSize] = i;
 
             pick(n, plama, bucket, bucketSize + 1, k - plama[i]);

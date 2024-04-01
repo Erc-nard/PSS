@@ -27,6 +27,9 @@ int main() {
 	scanf("%d", &n);
     int a[] = { 1000, 5000, 10000 };
     int m = n / 1000;
-    int* bucket = (int*)malloc(sizeof(int)*n);
+    int* bucket = (int*)malloc(sizeof(int)*m); //*m해주기
     pick(3, a,bucket,0, n);
+    
+    free(bucket); //malloc free
+    return 0;
 }

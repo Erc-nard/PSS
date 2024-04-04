@@ -15,10 +15,8 @@ void pick(char items[][10], int itemsize, int* bucket, int bucketSize, int k)
 	} 
 	// k > 0
 	int lastIndex = bucketSize - k - 1;
-    if(bucketSize==k) smallest=0;
-    else smallest=bucket[lastIndex]+1;
 
-	for (int i = smallest; i < itemsize; i++)
+	for (int i = 0; i < itemsize; i++)
 	{	int flag=0;
 		for(int j=0;j<=lastIndex;j++)
 			if(bucket[j]==i) flag=1;

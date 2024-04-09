@@ -13,7 +13,7 @@ void sequence_check(int * seq,int sequencesize,int *check){
 	}
 	total+=seq[sequencesize-1];
 	//printf("%d\n",total);
-	if(chec==0)*check=total;
+	if(chec==0)*check=total; //pointer caution
 	}
 
 }

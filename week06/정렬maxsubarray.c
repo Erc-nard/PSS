@@ -13,9 +13,10 @@ int right_max_sum(int A[], int left, int right) {
 } // Lab
 int left_max_sum(int *A, int left, int right) {
 	int i, max, sum;
-	max = A[left];
-	sum = A[left];
-	for(i=left+1; i<=right; i++) {
+
+	max = A[right];
+	sum = A[right];
+	for(i=right-1; i>=left; i--) {
 		sum = sum + A[i];
 		if(max < sum)
 			max = sum;
@@ -25,30 +26,18 @@ int left_max_sum(int *A, int left, int right) {
 
 int max_subarray(int *A, int left, int right) {
     int v1,v2,v3;
-	int i, max=0, sum;
-    if(left==right) return max;
-    
+
+    	if(left==right) return A[left];
     int m=(left+right)/2;
-	v1=right_max_sum(A,m+1,right);
-	v2=left_max_sum(A,left,m);
+	v1=max_subarray(A,m+1,right);
+	v2=max_subarray(A,left,m);
+	v3=right_max_sum(A,m+1,right)+left_max_sum(A,left,m);
+
 	//printf("%d %d %d \n",v1,v2,v3);
-	
-	max = A[right];
-	sum = A[right];
-	for(i=right-1; i>=left; i--) {
-		sum = sum + A[i];
-		if(max < sum)
-			max = sum;
-	}
-	v3=max;
-	
-	
-    //max_subarray(A,m+1,right);
-   	//max_subarray(A,left,m);
-	
-
-
-} // ����
+	if(v3>=v1 && v3>=v2) return v3;
+	else if(v2>=v1 && v2>=v3) return v2;
+	else return v1;
+} 
 
 int main() {
  //int A[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4}; // tc #1: max는 6

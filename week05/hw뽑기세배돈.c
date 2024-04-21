@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-void pick(int n, int* plama,int* bucket, int bucketSize, int k) { //ì¤‘ë³µ ì¡°í•©
+void pick(int n, int* plama,int* bucket, int bucketSize, int k) { //Áßº¹ Á¶ÇÕ
     int i, lastIndex, item;
-    if (k == 0) {
+    if (k == 0) { //°¡°ÝÀÌ ¸Â´Ù¸é Ãâ·Â
         for (i = 0; i < bucketSize; i++) {
             printf( "%d ", plama[bucket[i]] );
         }
@@ -11,12 +11,13 @@ void pick(int n, int* plama,int* bucket, int bucketSize, int k) { //ì¤‘ë³µ ì¡°í•
     }
     lastIndex = bucketSize;
     for (i = 0; i < n; i++) {
-        if ((k - plama[i]) >= 0) {
+        if ((k - plama[i]) >= 0) { //k¿¡¼­ °¡Àå ÀÛÀº°ª»©µµ 0ÀÌ»óÀÏ¶§¸¸ ½ÇÇà
             if (bucketSize > 0)
                 if( plama[i] > plama[bucket[bucketSize-1]]) continue;
             bucket[bucketSize] = i;
 
             pick(n, plama, bucket, bucketSize + 1, k - plama[i]);
+            //¿øÇÏ´Â°ª¿¡¼­ »ÌÀº°ª¸¸Å­ »­ 
         }
         
     }
@@ -27,7 +28,7 @@ int main() {
 	scanf("%d", &n);
     int a[] = { 1000, 5000, 10000 };
     int m = n / 1000;
-    int* bucket = (int*)malloc(sizeof(int)*m); //*mí•´ì£¼ê¸°
+    int* bucket = (int*)malloc(sizeof(int)*m); //*mÇØÁÖ±â
     pick(3, a,bucket,0, n);
     
     free(bucket); //malloc free

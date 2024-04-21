@@ -30,10 +30,10 @@ void pick(char items[][10], int itemsize, int* bucket, int bucketSize, int k)
 
 int main() {
 	int num;
-	printf("입력:");
+	printf("??·?:");
 	scanf("%d", &num);
 	char items[][10] = {"공유", "김수현", "송중기", "지성", "현빈"};
-	int bucket[5]; //index????옣?븯湲?
+	int bucket[5]; //index??????????¸?
 	pick(items, 5, bucket, num, num);
 
 }

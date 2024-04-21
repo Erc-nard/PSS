@@ -16,20 +16,15 @@ void pick(int* items, int itemsize, int* bucket, int bucketSize, int k,int *coun
 					break;
 				}
 			}
-			if(flag2==0) {remain=items[i];break;}
+			if(flag2==0) {remain=items[i];break;} //¾È»ÌÈù Ä«µå Ã£±â
 		}
-		//printf("remain: %d. ",remain);
 
 		int total=0;
 		for (int j = 0; j < bucketSize; j++) {
-			//printf("%d ", items[bucket[j]]);
-			total=total*10+items[bucket[j]];
+			total=total*10+items[bucket[j]]; //1 2 ÀÌ·¸°Ô ¹ÞÀº°Å 12·Î ¸¸µéÀ½
 		}
-		//printf("%d\n",total);
-		if((total%remain)==0)(*count)++;
-		//printf("\n");
 
-
+		if((total%remain)==0)(*count)++; //¹è¼ö¸é count+1
 	} 
 	// k > 0
 	int lastIndex = bucketSize - k - 1;
@@ -37,7 +32,7 @@ void pick(int* items, int itemsize, int* bucket, int bucketSize, int k,int *coun
 	for (int i = 0; i < itemsize; i++)
 	{	int flag=0;
 		for(int j=0;j<=lastIndex;j++)
-			if(bucket[j]==i) flag=1; //ì¤‘ë³µ ê±°ë¥´ê¸°
+			if(bucket[j]==i) flag=1; //Áßº¹ °Å¸£°í Ä«µå»Ì³¢ÀÌ
 		if(flag==1) continue;
 		bucket[lastIndex + 1] = i;
 		pick(items, itemsize, bucket, bucketSize, k - 1,count);

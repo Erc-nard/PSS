@@ -31,6 +31,7 @@ int main() {
 	printf("입력:");
 	scanf("%d", &num);
 	char items[][10] = {"공유", "김수현", "송중기", "지성", "현빈"};
+	//문자열받을때 2차원배열로 받아야함 그리고 크기는 길이의 2배정도
 	int bucket[5]; //index????옣?븯湲?
 	pick(items, 5, bucket, num, num);
 

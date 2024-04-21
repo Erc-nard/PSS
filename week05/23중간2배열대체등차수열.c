@@ -1,19 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-void sequence_check(int * seq,int sequencesize,int *check){
+void sequence_check(int * seq,int sequencesize,int *check){ //등차수열체크
 	int total=0,d,chec=0;
-	if(sequencesize<2)*check=seq[0];
+	if(sequencesize<2) 
+		*check=seq[0]; //숫자 하나여도 수열임
 	else{
-		
-	d=seq[1]-seq[0];
-	//printf("%d ",d);
-	for(int i=0;i<sequencesize-1;i++){
-		if((seq[i+1]-seq[i])!=d) chec=1;
-		total+=seq[i];
-	}
-	total+=seq[sequencesize-1];
-	//printf("%d\n",total);
-	if(chec==0)*check=total; //pointer caution
+		d=seq[1]-seq[0];//공차
+		for(int i=0;i<sequencesize-1;i++){
+			if((seq[i+1]-seq[i])!=d) chec=1; //하나라도 공차어긋나면 등차수열아님
+			total+=seq[i];
+		}
+		total+=seq[sequencesize-1];
+
+		if(chec==0) *check=total; //포인터값 대입 주의하기
 	}
 
 }
@@ -22,27 +21,21 @@ int itemsize,int *check)
 {
 	int smallest;
 	int sequence_copy[100];
+
 	for(int i=0;i<sequencesize;i++)
-		sequence_copy[i]=sequence[i];
+		sequence_copy[i]=sequence[i]; //매번 다른배열에 저장하기(오류방지)
 
 	if (k == 0) // trivial case
 	{
-		
-		
 		for (int j = 0; j < bucketSize; j++) {
 			sequence_copy[bucket[j]]=items[j];
 		}
 		sequence_check(sequence_copy,sequencesize,check);
 		
-		for (int j = 0; j < bucketSize; j++) {
+		for (int j = 0; j < bucketSize; j++) { //순서 거꾸로해서도 집어넣기
 			sequence_copy[bucket[j]]=items[itemsize-1-j];
 		}
-		/*for(int i=0;i<sequencesize;i++)
-			printf("%d bbb ",sequence_copy[i]);
-			printf("\n");*/
 		sequence_check(sequence_copy,sequencesize,check);
-		
-		 
 	} 
 	// k > 0
 	int lastIndex = bucketSize - k - 1;

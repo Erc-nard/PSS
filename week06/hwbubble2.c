@@ -6,14 +6,14 @@
 
 struct Student
 {
-    int id; //?•™ë²?. 1ë²? ë¶??„° ë¶??—¬ ..
+    int id; //?????. 1?? ????? ????? ..
     int korean, english, math;
 };
 
 void bubbleSortDescendingByKorean(struct Student *A, int n){
     int j;
 
-    for (int i = 0; i < n-1; i++) { // n-1 ë°˜ë³µ
+    for (int i = 0; i < n-1; i++) { // n-1 ¹Ýº¹
         for ( j = 0; j < n-1-i; j++) {
             if( A[j].korean < A[j+1].korean ) {
                 swap(A,j);
@@ -24,7 +24,7 @@ void bubbleSortDescendingByKorean(struct Student *A, int n){
 void bubbleSortDescendingBymath(struct Student *A, int n){
     int j;
 
-    for (int i = 0; i < n-1; i++) { // n-1 ë°˜ë³µ
+    for (int i = 0; i < n-1; i++) { // n-1 ¹Ýº¹
         for ( j = 0; j < n-1-i; j++) {
             if( A[j].math < A[j+1].math ) {
                 swap(A,j);
@@ -35,7 +35,7 @@ void bubbleSortDescendingBymath(struct Student *A, int n){
 void bubbleSortDescendingByeng(struct Student *A, int n){
     int j;
      
-    for (int i = 0; i < n-1; i++) { // n-1 ë°˜ë³µ
+    for (int i = 0; i < n-1; i++) { // n-1 ¹Ýº¹
         for ( j = 0; j < n-1-i; j++) {
             if( A[j].english < A[j+1].english ) {
                 swap(A,j);
@@ -45,12 +45,10 @@ void bubbleSortDescendingByeng(struct Student *A, int n){
 }
 
 
-
-
 void bubbleSortAscendingById(struct Student *A, int n){
     int j;
 
-    for (int i = 0; i < n-1; i++) { // n-1 ë°˜ë³µ
+    for (int i = 0; i < n-1; i++) { // n-1 ¹Ýº¹
         for ( j = 0; j < n-1-i; j++) {
             if( A[j].id > A[j+1].id ) {
                 swap(A,j);
@@ -72,7 +70,7 @@ int main(){
     int end=1;
     srand(time(NULL));
 
-    printf("ÇÐ»ý ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä:");
+    printf("?¬Ý? ???? ????????:");
 	scanf("%d", &n);
     struct Student *s=(struct Student *)malloc(sizeof(struct Student)*n);
 
@@ -85,9 +83,9 @@ int main(){
     
     while(end!=0){
         for(int i=0;i<n;i++)
-            printf("ÇÐ¹ø:%d ¿µ¾î:%d ¼öÇÐ:%d ±¹¾î:%d\n",s[i].id,s[i].english,s[i].math,s[i].korean);
+            printf("?¬Û?:%d ????:%d ????:%d ????:%d\n",s[i].id,s[i].english,s[i].math,s[i].korean);
 
-        printf("Á¤·Ä ±âÁØ ¼±ÅÃ(1:±¹¾î, 2:¼öÇÐ, 3:¿µ¾î, 4:id(¿À¸§Â÷¼ø), 0:³¡³»±â):");
+        printf("???? ???? ????(1:????, 2:????, 3:????, 4:id(????????), 0:??????):");
         scanf("%d",&end);
         if(end==0) break;
         else if(end==1)

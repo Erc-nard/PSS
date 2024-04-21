@@ -6,14 +6,14 @@
 
 struct Student
 {
-    int id; //í•™ë²ˆ. 1ë²ˆ ë¶€í„° ë¶€ì—¬ ..
+    int id; //ÇÐ¹ø. 1¹ø ºÎÅÍ ºÎ¿© ..
     int korean, english, math;
 };
 
 void bubbleSortDescendingByKorean(struct Student *A, int n){
     int j;
      struct Student temp;
-    for (int i = 0; i < n-1; i++) { // n-1 ë°˜ë³µ
+    for (int i = 0; i < n-1; i++) { // n-1 ¹Ýº¹
         for ( j = 0; j < n-1-i; j++) {
             if( A[j].korean < A[j+1].korean ) {
                 temp=A[j];
@@ -28,7 +28,7 @@ void bubbleSortDescendingByKorean(struct Student *A, int n){
 void bubbleSortAscendingById(struct Student *A, int n){
     int j;
      struct Student temp;
-    for (int i = 0; i < n-1; i++) { // n-1 ë°˜ë³µ
+    for (int i = 0; i < n-1; i++) { // n-1 ¹Ýº¹
         for ( j = 0; j < n-1-i; j++) {
             if( A[j].id > A[j+1].id ) {
                 temp=A[j];

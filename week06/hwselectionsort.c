@@ -6,7 +6,7 @@
 
 struct Student
 {
-    int id; //í•™ë²ˆ. 1ë²ˆ ë¶€í„° ë¶€ì—¬ ..
+    int id; //ÇÐ¹ø. 1¹ø ºÎÅÍ ºÎ¿© ..
     int korean, english, math;
 };
 

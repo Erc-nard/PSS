@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void insertion_sort1(int *A, int n) {
+void insertion_sort1(int *A, int n) { //오름차순
 	int i, j, k, temp;
 
 	for(i=1; i<n; i++) {
@@ -51,15 +51,15 @@ int main() {
         scanf("%d",&sequence[i]);
     }
 	
-	insertion_sort2(items,n);
-	insertion_sort1(sequence,n);
+	insertion_sort2(items,n); //배열a내림차순 정렬
+	insertion_sort1(sequence,n);//배열b 올림차순 정렬
 
 	int max=0;
 
 
 	for(int i=0;i<k;i++) //k개 꼭!!!바꿔야함
-		sequence[i]=items[i];
-	for(int i=0;i<n;i++) max+=sequence[i];
+		sequence[i]=items[i]; //작은수들 큰 a수들로 대체
+	for(int i=0;i<n;i++) max+=sequence[i]; //최댓값 구하기
 		
 
 

@@ -1,28 +1,24 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-void pick(int n, char* plama,int* bucket, int bucketSize, int k,int target,int* count) { //ì¤‘ë³µ ì¡°í•©
+void pick(int n, char* plama,int* bucket, int bucketSize, int k,int target,int* count) { //Áßº¹ Á¶ÇÕ
     int i, lastIndex,  item;
     int total = 0;
 
     if(k<0)return;
    
     for (i = 0; i < bucketSize-k; i++) {
-            //printf(" %c", plama[bucket[i]]);
-            //printf(" %d", i+1);
             if (plama[bucket[i]] == '-') total -= (i + 1);
-            else total += (i + 1);
-            
-    }
+            else total += (i + 1);   
+    }//ÀÏ´Ü ½ÇÇàÇØ¼­ ÃÖÁ¾ ÇÕ ¾ó¸¶ÀÎÁö °è»ê
     if(target==total){
-        //printf(" %d\n",total);
-        (*count)++;}
+        (*count)++;} 
 
-    if(k==0) return;
+    if(k==0) return; //À§¿¡ ´Ù½ÇÇàµÇ°í k°¡ 0ÀÌ¸é return
 
-    lastIndex = bucketSize - k - 1; // ê°€ìž¥ ìµœê·¼ì— ë½‘ížŒ ìˆ˜ê°€ ì €ìž¥ëœ ìœ„ì¹˜ index
+    lastIndex = bucketSize - k - 1; // °¡Àå ÃÖ±Ù¿¡ »ÌÈù ¼ö°¡ ÀúÀåµÈ À§Ä¡ index
     for (item = 0; item < n; item++) {
-        bucket[lastIndex + 1] = item;
+        bucket[lastIndex + 1] = item; //+,-ÀÎµ¦½º ¹öÄÏ¿¡ ÀúÀå
         pick(n, plama,bucket, bucketSize, k-1,target,count);
     }
 

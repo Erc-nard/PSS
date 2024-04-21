@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "문해기중간6.C": "cpp"
+        "문해기중간6.C": "cpp",
+        "math.h": "c"
     }
 }

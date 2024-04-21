@@ -22,13 +22,13 @@ void display(int s[][WIDTH]);
 void flood_fill(int x, int y) {
 	if(screen[x][y] == 0) {
 		screen[x][y] = count++;
-        if(y+1<WIDTH)
+        if(y+1<WIDTH) //아래로 가면서 쭉채움 0아니면 다음
 		flood_fill(x, y+1);
-        if(x+1<WIDTH)
+        if(x+1<WIDTH) //오른쪽가면서 쭉 채움 0아니면 다음
 		    flood_fill(x+1, y);
-        if(y-1>0)
+        if(y-1>0) //위로 가면서 쭉채움 0아니면 다음
 		flood_fill(x, y-1);
-        if(x-1>0)
+        if(x-1>0) //왼쪽가면서 쭉 채움 0아니면 다음
             flood_fill(x-1, y);
         
         

@@ -1,9 +1,9 @@
 #include <stdio.h>
 int ArithmeticSequence(int a[],int n){
-    if(n<2) return 1; //ìˆ«ìží•˜ë‚˜ë§Œìžˆì–´ë„ ìˆ˜ì—´
-    int d=a[1]-a[0];
+    if(n<2) return 1; //¼ýÀÚÇÏ³ª¸¸ÀÖ¾îµµ ¼ö¿­
+    int d=a[1]-a[0]; //°øÂ÷
     for(int i=0;i<n-1;i++){
-        if((a[i+1]-a[i])!=d) 
+        if((a[i+1]-a[i])!=d) //ÇÏ³ª¶óµµ °øÂ÷ ¾î±ß³ª¸é °øÂ÷¼ö¿­¾Æ´Ô
             return 0;
     }
     return 1;

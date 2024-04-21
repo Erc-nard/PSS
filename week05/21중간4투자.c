@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-void pick(int n, char* plama,int* bucket, int bucketSize, int k,int* count,int*all) { //ì¤‘ë³µ ì¡°í•©
+void pick(int n, char* plama,int* bucket, int bucketSize, int k,int* count,int*all) { //Áßº¹ Á¶ÇÕ
     int i, lastIndex, smallest, item;
     int total = 0;
     if (k == 0) {
@@ -10,11 +10,13 @@ void pick(int n, char* plama,int* bucket, int bucketSize, int k,int* count,int*a
             //printf(" %d", all[i]);
             if (plama[bucket[i]] == '-') total -= (all[i]);
             else if(plama[bucket[i]]=='+') total += (all[i] );
+            //^ÀÌ ¾Õ¿¡ ºÙÀº°Ç 0À¸·Î °£ÁÖÇÏ°í Ã³¸®
         }
+        //printf(" =%d\n", total);
         if(total==0)(*count)+=1;
         return;
     }
-    lastIndex = bucketSize - k - 1; // ê°€ì¥ ìµœê·¼ì— ë½‘íŒ ìˆ˜ê°€ ì €ì¥ëœ ìœ„ì¹˜ index
+    lastIndex = bucketSize - k - 1; // °¡Àå ÃÖ±Ù¿¡ »ÌÈù ¼ö°¡ ÀúÀåµÈ À§Ä¡ index
     smallest = 0;
     for (item = smallest; item < n; item++) {
         bucket[lastIndex + 1] = item;
@@ -25,7 +27,7 @@ int main() {
 	int n;
     int count=0;
 	scanf("%d", &n);
-    char a[] = { '+','-','^' };
+    char a[] = { '+','-','^' }; //^ÀÌ ¾Õ¿¡ ºÙÀ¸¸é 0Ã³¸®
     int* bucket = (int*)malloc(sizeof(int)*n);
     int* item = (int*)malloc(sizeof(int)*n);
     for(int i=0;i<n;i++){

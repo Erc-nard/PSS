@@ -26,6 +26,7 @@ void init(char s[][MAX_WIDTH])
 		for (j = 0; j < MAX_WIDTH; j++)
 			s[i][j] = '-'; //전체에 -넣기
 }
+
 void display(char s[][MAX_WIDTH], int width)
 {
 	int i, j;

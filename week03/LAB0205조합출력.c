@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-void pick(int n,int m,int picked[],int topick){ //n>ìµœëŒ€ìˆ«ì m>listí¬ê¸° topick>ì•ìœ¼ë¡œ ê³¨ë¼ì•¼í•˜ëŠ” ìˆ«ìê°œìˆ˜
+void pick(int n,int m,int picked[],int topick){ //n>ÃÖ´ë¼ıÀÚ m>listÅ©±â topick>¾ÕÀ¸·Î °ñ¶ó¾ßÇÏ´Â ¼ıÀÚ°³¼ö
     int smallest,lastindex=m-topick;
 
-    if(topick==0){ //ë‹¤ê³ ë¥´ë©´ ì¡°í•©ì¶œë ¥
+    if(topick==0){ //´Ù°í¸£¸é Á¶ÇÕÃâ·Â
         for(int i=0;i<m;i++){
             printf("%d ",picked[i]);
         }
@@ -11,12 +11,12 @@ void pick(int n,int m,int picked[],int topick){ //n>ìµœëŒ€ìˆ«ì m>listí¬ê¸° to
         return;
     }
 
-    if(m==topick) smallest=0; //ë§¨ì²˜ìŒ ê³ ë¥¼ë•Œ 0ë¶€í„° ê³ ë¦„
-    else smallest=picked[lastindex-1]+1; //ê·¸ë‹¤ìŒ ê³ ë¥¼ë•Œ ë‹¤ìŒìˆ«ìë¶€í„° ê³ ë¦„ lastindexì— ë“¤ì–´ìˆëŠ”ìˆ«ì+1
+    if(m==topick) smallest=0; //¸ÇÃ³À½ °í¸¦¶§ 0ºÎÅÍ °í¸§
+    else smallest=picked[lastindex-1]+1; //±×´ÙÀ½ °í¸¦¶§ ´ÙÀ½¼ıÀÚºÎÅÍ °í¸§ lastindex¿¡ µé¾îÀÖ´Â¼ıÀÚ+1
 
     for(int i=smallest;i<n;i++){ 
-        picked[lastindex]=i; //0ë¶€í„° ~
-        pick(n,m,picked,topick-1);
+        picked[lastindex]=i; //0ºÎÅÍ n±îÁö Áı¾î³ÖÀ½
+        pick(n,m,picked,topick-1); //°ñ¶ó¾ßÇÒ°³¼ö -1
     }
 }
 

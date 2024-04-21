@@ -19,7 +19,7 @@ int screen[HEIGHT][WIDTH] = {
 
 void display(int s[][WIDTH]);
 
-void flood_fill(int x, int y,int *count) {
+void flood_fill(int x, int y,int *count) { //Æ÷ÀÎÅÍ·Î ¹ŞÀ¸¸é µÊ
 
 	if(screen[x][y] == 0) {
 		screen[x][y] = (*count)++;
@@ -37,10 +37,10 @@ void flood_fill(int x, int y,int *count) {
 }
 
 int main(void) {
-    printf("ë¯¸ë¡œ:\n");
+    printf("¹Ì·Î:\n");
     display(screen);
     int count=0;
-    printf("ì‹œì‘ì ì„ <0 0>ìœ¼ë¡œ í•œ ë¯¸ë¡œë°©ë¬¸(ìˆœì„œí‘œê¸°):\n");
+    printf("½ÃÀÛÁ¡À» <0 0>À¸·Î ÇÑ ¹Ì·Î¹æ¹®(¼ø¼­Ç¥±â):\n");
 	flood_fill(0,0,&count);
 	display(screen);
 }

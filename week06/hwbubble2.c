@@ -95,7 +95,7 @@ int main(){
         else if(end==3)
             bubbleSortDescendingByeng(s,n);
         else
-         bubbleSortAscendingById(s,n);
+            bubbleSortAscendingById(s,n);
     }
 	free(s);
 }

@@ -6,7 +6,7 @@
 
 struct Student
 {
-	int id; //í•™ë²ˆ. 1ë²ˆ ë¶€í„° ë¶€ì—¬ ..
+	int id; //ÇĞ¹ø. 1¹ø ºÎÅÍ ºÎ¿© ..
 	int korean, english, math;
 };
 int partition(struct Student* A, int p, int r) {
@@ -17,7 +17,7 @@ int partition(struct Student* A, int p, int r) {
 	i = p - 1;
 
 	for (j = p; j < r; j++) {
-		if (A[j].korean < pivot) {
+		if (A[j].korean > pivot) { //ÀÌ°Å¿¡µû¶ó ¿À¸§Â÷¼ø³»¸²Â÷¼ø¹Ù²ñ >¸é ³»¸²Â÷¼ø
 			i++;
 			//swap A[i] <-> A[j]
 			B = A[i];
@@ -57,20 +57,20 @@ int main()
 		s[i].math = rand() % 101;
 		printf("%d %d %d %d\n", s[i].id, s[i].korean, s[i].english, s[i].math);
 	}
-	//n ì…ë ¥ ë°›ìŒ
-	//êµ¬ì¡°ì²´ ë°°ì—´ì„ ë™ì ìœ¼ë¡œ í• ë‹¹
-	// í•™ë²ˆ ë¶€ì—¬
-	// randomìœ¼ë¡œ ì„±ì  ì €ì¥
-	// í•™ìƒ ì •ë³´(í•™ë²ˆ, ì„±ì ë“¤) ì¶œë ¥
+	//n ÀÔ·Â ¹ŞÀ½
+	//±¸Á¶Ã¼ ¹è¿­À» µ¿ÀûÀ¸·Î ÇÒ´ç
+	// ÇĞ¹ø ºÎ¿©
+	// randomÀ¸·Î ¼ºÀû ÀúÀå
+	// ÇĞ»ı Á¤º¸(ÇĞ¹ø, ¼ºÀûµé) Ãâ·Â
 	
 	quick_sort(s,0,n-1);
-	//êµ­ì–´ ì„±ì  ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ â†’ quick sort í•¨ìˆ˜ í˜¸ì¶œ
+	//±¹¾î ¼ºÀû ±âÁØÀ¸·Î ³»¸²Â÷¼ø Á¤·Ä ¡æ quick sort ÇÔ¼ö È£Ãâ
 	printf("\n");
 	for (int i = 0; i < n; i++) {
 		printf("%d %d %d %d\n", s[i].id, s[i].korean, s[i].english, s[i].math);
 	}
 	free(s);
-	// ì •ë ¬ëœ í•™ìƒ ì •ë³´(í•™ë²ˆ, ì„±ì ë“¤) ì¶œë ¥
-	//ë™ì ìœ¼ë¡œ í• ë‹¹ ë°›ì€ êµ¬ì¡°ì²´ ë°°ì—´ ë°˜í™˜
+	// Á¤·ÄµÈ ÇĞ»ı Á¤º¸(ÇĞ¹ø, ¼ºÀûµé) Ãâ·Â
+	//µ¿ÀûÀ¸·Î ÇÒ´ç ¹ŞÀº ±¸Á¶Ã¼ ¹è¿­ ¹İÈ¯
 	
 }

@@ -11,17 +11,19 @@ void printMatrix(int **a, int r, int c) {
 	}
 }
 
-void matrixmul(int **a, int **b, int **x, int ar, int ac,int cc) {
+void matrixmul(int **a, int **c, int **x, int ar, int ac,int cc) {
 	
 	for(int i=0;i<ar;i++){
 		for(int j=0;j<cc;j++){
+			x[i][j]=0;
 			for(int h=0;h<ac;h++){
-				x[i][j]+=(a[i][h]*b[h][j]);
+				x[i][j]+=(a[i][h]*c[h][j]);
 				}
 			}
 		}
 	printMatrix(x,ar,cc);
-	}
+
+}
 
 void tranposedA(int **a,int ar,int ac){
 	for(int j=0;j<ac;j++){
@@ -39,42 +41,42 @@ int main(void)
 	int aRow, aCol;
 	int cRow,cCol;
 	int i, j;
-	printf("Enter í–‰ë ¬ Aì˜ í–‰ê³¼ ì—´ì˜ ê°œìˆ˜: ");
+	printf("Enter Çà·Ä AÀÇ Çà°ú ¿­ÀÇ °³¼ö: ");
 	scanf("%d %d", &aRow, &aCol);
-	printf("Eneter í–‰ë ¬ Cì˜ í–‰ê³¼ ì—´ì˜ ê°œìˆ˜(Cì˜ í–‰ì€ %dì´ì–´ì•¼):",aCol);
+	printf("Eneter Çà·Ä CÀÇ Çà°ú ¿­ÀÇ °³¼ö(CÀÇ ÇàÀº %dÀÌ¾î¾ß):",aCol);
 	scanf("%d %d",&cRow,&cCol);
 	
-	a = (int**)malloc(sizeof(int*) * aRow); // rí–‰ ë™ì  í• ë‹¹
+	a = (int**)malloc(sizeof(int*) * aRow); // rÇà µ¿Àû ÇÒ´ç
 	for( i = 0; i < aRow; i++) 
-		a[i] = (int*)malloc(sizeof(int) * aCol);//ê° í–‰ë§ˆë‹¤ cì—´ í• ë‹¹
-	c = (int**)malloc(sizeof(int*) * cRow); // rí–‰ ë™ì  í• ë‹¹
+		a[i] = (int*)malloc(sizeof(int) * aCol);//°¢ Çà¸¶´Ù c¿­ ÇÒ´ç
+	c = (int**)malloc(sizeof(int*) * cRow); // rÇà µ¿Àû ÇÒ´ç
 	for( i = 0; i < cRow; i++) 
-		c[i] = (int*)malloc(sizeof(int) * cCol);//ê° í–‰ë§ˆë‹¤ cì—´ í• ë‹¹
-	x = (int**)malloc(sizeof(int*) * aRow); // rí–‰ ë™ì  í• ë‹¹
+		c[i] = (int*)malloc(sizeof(int) * cCol);//°¢ Çà¸¶´Ù c¿­ ÇÒ´ç
+	x = (int**)malloc(sizeof(int*) * aRow); // rÇà µ¿Àû ÇÒ´ç
 	for( i = 0; i < aRow; i++) 
-		x[i] = (int*)malloc(sizeof(int) * cCol);//ê° í–‰ë§ˆë‹¤ cì—´ í• ë‹¹
+		x[i] = (int*)malloc(sizeof(int) * cCol);//°¢ Çà¸¶´Ù c¿­ ÇÒ´ç
 				
-	printf("%d x %d í–‰ë ¬ A ìž…ë ¥:",aRow,aCol);
+	printf("%d x %d Çà·Ä A ÀÔ·Â:\n",aRow,aCol);
 	for(i = 0; i < aRow; i++)
 		for( j = 0; j < aCol; j++ )
 			scanf("%d",&a[i][j]);
 		
-	printf("%d x %d í–‰ë ¬ C ìž…ë ¥:",cRow,cCol);
+	printf("%d x %d Çà·Ä C ÀÔ·Â:\n",cRow,cCol);
 	for(i = 0; i < cRow; i++)
 		for( j = 0; j < cCol; j++ )
 			scanf("%d",&c[i][j]);		
 	
-	printf("í–‰ë ¬ê³±:\n");
+	printf("Çà·Ä°ö:\n");
 	matrixmul(a,c,x,aRow,aCol,cCol);
-	printf("ì „ì¹˜í–‰ë ¬:\n");
+	printf("ÀüÄ¡Çà·Ä:\n");
 	tranposedA(a,aRow,aCol);
 
 	for(i = 0; i < aRow; i++)
-		free(a[i]); //ê° ì—´ì„ ë°˜í™˜
-	free(a); // í–‰ì„ ë°˜í™˜
+		free(a[i]); //°¢ ¿­À» ¹ÝÈ¯
+	free(a); // ÇàÀ» ¹ÝÈ¯
 	for(i = 0; i < cRow; i++)
-		free(c[i]); //ê° ì—´ì„ ë°˜í™˜
-	free(c); // í–‰ì„ ë°˜í™˜
+		free(c[i]); //°¢ ¿­À» ¹ÝÈ¯
+	free(c); // ÇàÀ» ¹ÝÈ¯
 	for(i=0;i<aRow;i++)
 		free(x[i]);
 	free(x);

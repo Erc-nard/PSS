@@ -33,20 +33,23 @@ int partition(int* A, int p, int r) {
     return i;
 }
 
-void quick_sort(int* A, int p, int r, int num) {//if(num-q<0):ì™¼ìª½ else ì˜¤ë¥¸ìª½
-    for (int i = 0; i < 10; i++) {
+void quick_sort(int* A, int p, int r, int num) {//if(num-q<0):????? else ???¸¥ÂÊ
+    /*for (int i = 0; i < 10; i++) {
         printf("%d ", A[i]);
     }
-    printf("\n");
+    printf("\n");*/
 
-    if (p < r && num >= 0) {
+    if (p < r ) {
         int q = partition(A, p, r);
-        printf("ë€¨:%d\n", q);
-        if (num - q < 0)
-            quick_sort(A, p, q - 1, num);
-        else
-            quick_sort(A, q + 1, r, num - p - q - 1);
+        //printf("²ó:%d\n", q);
 
+        if (num - q < 0){
+            //printf("¿ŞÂÊ %d %d %d\n",num,p,q-1);
+            quick_sort(A, p, q - 1, num);}
+        else {//printf("¿À¸¥ÂÊ %d %d %d\n",num,q+1,r);
+            quick_sort(A, q + 1, r, num - p - q - 1);
+        }
+        
     }
 
 }
@@ -58,9 +61,10 @@ int main() {
 
     printf("Enter the number of numbers:");
     scanf("%d", &randomnum);
-    printf("ëª‡ ë²ˆì§¸ë¡œ ì‘ì€ ìˆ˜:");
+    printf("¸î ¹øÂ°·Î ÀÛÀº ¼ö:");
     scanf("%d", &num);
 
+    //int test[10]={65, 64, 78, 6, 48, 43, 19, 87, 80, 6};
     int* a = (int*)malloc(sizeof(int) * randomnum);
     for (int i = 0; i < randomnum; i++) {
         a[i] = rand() % 101;
@@ -69,7 +73,8 @@ int main() {
     printf("\n");
 
     quick_sort(a, 0, randomnum - 1, num - 1);
-    printf("%d", a[num-1]);
+    printf("%d¹øÂ° ÀÛÀº ¼ö´Â %d", num, a[num-1]);
     // printf("%d",a[num-1]);
-
+    
+    free(a);
 }

@@ -39,7 +39,7 @@ void quick_sort(int* A, int p, int r, int num) {//if(num-q<0):????? else ???른쪽
     }
     printf("\n");*/
 
-    if (p < r ) {
+    if (p < r) {
         int q = partition(A, p, r);
         //printf("뀨:%d\n", q);
 
@@ -47,7 +47,7 @@ void quick_sort(int* A, int p, int r, int num) {//if(num-q<0):????? else ???른쪽
             //printf("왼쪽 %d %d %d\n",num,p,q-1);
             quick_sort(A, p, q - 1, num);}
         else {//printf("오른쪽 %d %d %d\n",num,q+1,r);
-            quick_sort(A, q + 1, r, num - p - q - 1);
+            quick_sort(A, q + 1, r, num);
         }
         
     }
@@ -64,7 +64,7 @@ int main() {
     printf("몇 번째로 작은 수:");
     scanf("%d", &num);
 
-    //int test[10]={65, 64, 78, 6, 48, 43, 19, 87, 80, 6};
+    //int test[10]={9, 90, 65, 74, 80, 87, 22, 74, 20, 18};
     int* a = (int*)malloc(sizeof(int) * randomnum);
     for (int i = 0; i < randomnum; i++) {
         a[i] = rand() % 101;

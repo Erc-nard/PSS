@@ -10,7 +10,7 @@ int matrixPath_memo(int **m, int r, int c, int i, int j, int **M,int *icount, in
             M[0][j-1] = matrixPath_memo(m,r,c,0,j-1,M,icount,jcount);
             
         }
-        return M[0][j-1] + m[i][j];;
+        return M[0][j-1] + m[i][j];
     }
     else if (j == 0) {
         if (/*M[i-1][0] == 0*/ *icount<i-1){
@@ -24,7 +24,7 @@ int matrixPath_memo(int **m, int r, int c, int i, int j, int **M,int *icount, in
             M[i-1][j] = matrixPath_memo(m,r,c,i-1,j,M,icount+1,jcount+1);
         if (/*M[i][j-1] == 0*/ *icount<i&&*jcount<j-1)
             M[i][j-1] = matrixPath_memo(m,r,c,i,j-1,M,icount+1,jcount+1);
-            return (M[i-1][j] < M[i][j-1] ? M[i-1][j]: M[i][j-1]) + m[i][j];
+            return (M[i-1][j] <= M[i][j-1] ? M[i-1][j]: M[i][j-1]) + m[i][j];
     }
 }
 
@@ -38,7 +38,11 @@ int main(void)
         m[i] = (int*) malloc(sizeof(int) * c );
         M[i] = (int*) malloc(sizeof(int) * c );
     }
-    
+    for(i=0 ;i<r; i++)
+		for(j=0 ;j<r; j++){
+			scanf("%d", &m[i][j]);
+			M[i][j] = 0;
+		}
     
     
     int icount=0,jcount=0;

@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int comb(int**m,int n, int r)
+long long comb(long long**m,long long n, long long r)
 {
 	
 	if(r==0||r==n) return 1;
@@ -19,13 +19,13 @@ int main(void)
 	int C;
 	int n,r;
 	scanf("%d %d",&n,&r);
-	int **m=(int**)malloc(sizeof(int)*n);
+	long long **m=(long long**)malloc(sizeof(long long)*n);
 	
 	for(int i=0;i<n;i++)
-			m[i]=(int*)malloc(sizeof(int)*n);
+			m[i]=(long long*)malloc(sizeof(long long)*n);
 	
 	C = comb(m,n,r); // 4C2
 	
-	printf("%d",C); 
+	printf("%lld",C); 
 	return 0;
 }

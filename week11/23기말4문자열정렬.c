@@ -52,7 +52,7 @@ void merge_sort(char *A, int p, int r) {
 int main(){
     int a=0,n=0,m=0;
     char s[500000];
-    scanf("%s",s);
+    scanf("%s",s); //문자열 받음
     int len=strlen(s);
 
     char*A=(char*)malloc(len);

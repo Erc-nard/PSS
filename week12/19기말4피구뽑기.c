@@ -60,4 +60,6 @@ int main(void)
     else
         printf("%d",group2-group1);
 	free(Student);
+
+    //시간초과남...
 }

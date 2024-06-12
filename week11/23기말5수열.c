@@ -26,12 +26,12 @@ int main()
 
 	for (int i = 0; i <40; i++) 
         for (int j = 0; j <40; j++)
-			me[i][j]=0;
+			me[i][j]=0; //메모 초기화
 
-	scanf("%d %d %d",&n,&m,&l);
+	scanf("%d %d %d",&n,&m,&l); //N,M,L받음
 
-    int even=n/2;
-    int odd=n-even;
+    int even=n/2; //1부터 N까지 짝수개수
+    int odd=n-even; //1부터 N까지 홀수개수 
 
     long long tot=0;
     

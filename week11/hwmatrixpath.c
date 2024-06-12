@@ -48,4 +48,5 @@ int main(void)
     int icount=0,jcount=0;
 
     printf("%d\n", matrixPath_memo(m,r,c,3,3,M,&icount,&jcount));
+    //메모하면 i몇개 메모했는지 확인하는 방식인데 비효율적 ... 백트랙킹 쓰자
 }

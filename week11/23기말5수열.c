@@ -35,11 +35,12 @@ int main()
 
     long long tot=0;
     
-    for(int i=l;i<=n-l;i++){
-        long long evenum=comb(me,even,i);
-        long long oddnum=comb(me,odd,m-i);
-        tot+=evenum*oddnum; 
+    for(int i=l;i<=n-l;i++){ //짝수가 l개, l+1개, l+2개...인경우 구하기
+        long long evenum=comb(me,even,i); //짝수가 l개인경우 짝수만 선택
+        long long oddnum=comb(me,odd,m-i); //홀수 길이-l개선택(짝수고르고 남은 길이에) 
+        tot+=evenum*oddnum; //둘곱하기
     }
+	
     printf("%lld",tot);
 
 	for (int i =0; i < 40; i++) 

@@ -6,7 +6,7 @@ int pick(int n,int*bucket,int bucketSize,int toPick,int tot,int*min,int *m) {
 	int now=n;
 	int all=tot;
 
-	if (tot == 0) {
+	if (tot == 0) { //다 뺐을때 비교
 		if (*min > bucketSize - toPick) 
 			*min = bucketSize - toPick;
 		return 0;
@@ -18,7 +18,6 @@ int pick(int n,int*bucket,int bucketSize,int toPick,int tot,int*min,int *m) {
 
 		all=tot;
 		if (all - ((n-i) * (n-i)) >= 0) { //최대 제곱수
-				//printf("n:%d tot=%d\n",n-i,tot);
 			bucket[bucketSize - toPick] = (n - i);
 			all -= ((n - i) * (n - i));
 			for (int i = 0; i < all; i++) {
@@ -28,8 +27,8 @@ int pick(int n,int*bucket,int bucketSize,int toPick,int tot,int*min,int *m) {
 				}
 			}
 			if(m[now]==-1)
-				m[now]=pick(now, bucket, bucketSize, toPick - 1, all, min,m);
-			else return m[now];
+				m[now]=pick(now, bucket, bucketSize, toPick - 1, all, min,m); //메모에 없으면 구하기
+			else return m[now]; //지금수일때 최소항개수 return
 		}
 	}
 }
@@ -43,8 +42,9 @@ int main(void)
 	int* bucket = (int*)malloc(sizeof(int) * n);
 	int* m = (int*)malloc(sizeof(int) * n);
 	for(int i=0;i<n;i++)
-		m[i]=-1;
-	if (n > 100) {
+		m[i]=-1; //메모용
+
+	if (n > 100) { //100보다 크면 최대제곱수 먼저 구함
 		int now;
 		for (int i = 0; i <= 100; i++) {
 			if (((100 - i) * (100 - i)) <= n) {
@@ -52,7 +52,6 @@ int main(void)
 				break;
 			}
 		}
-		//printf("%d\n", now);
 		pick(now, bucket, n, n, n,&min,m);
 	}
 	else {

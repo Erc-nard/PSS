@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void remove_duplicated_char(char* word)
+void remove_duplicated_char(char* word) //중복문자 삭제
 {
     int alpah[26] = { 0 };
     char ch[30];
@@ -11,40 +11,40 @@ void remove_duplicated_char(char* word)
 
     for (int i = 0; i < strlen(word); i++) {
         int now = word[i] - 'A';
-        if (alpah[now] == 0) {
-            ch[l++] = word[i];
-            alpah[now] += 1;
+        if (alpah[now] == 0) { //alpah 배열에 없으면 (0)
+            ch[l++] = word[i]; //ch배열에 추가하기
+            alpah[now] += 1; //alpah 배열 수 +1 한번 추가되면 그뒤로 같은거 나오면 그냥 넘어감
         }
     }
-    ch[l] = '\0';
-    strcpy(word, ch);
+    ch[l] = '\0'; //끝에 꼭 넣어주기
+    strcpy(word, ch); //word로 ch 복사해서 넣기
 }
 
-void makeCode(char code[], int dist, char* key) {
+void makeCode(char code[], int dist, char* key) { //코드변환
     int alpeh[26] = { 0 };
 
     for (int i = 0; i < strlen(key); i++) {
         int n = key[i] - 'A';
-        alpeh[n] = 1;
+        alpeh[n] = 1; //key들 이미 잇다는거 확인용으로 저장해둠
     }
     for (int i = 0; i < 26; i++)
-        code[i] = '+';
+        code[i] = '+'; //code전체에 +채움ㄴ
 
     for (int i = 0; key[i] != '\0'; i++) {
-        code[i + dist] = key[i];
+        code[i + dist] = key[i]; //key들은 dist만큼 이동한 거리에 먼저 집어넣음
     }
 
     int now = 0;
     for (int i = 0; i < 26; i++) {
         int flag = 0;
-        if (code[(i + dist + strlen(key)) % 26] != '+')continue;
-        while (alpeh[now] == 1)now++;
-        code[(i + dist + strlen(key)) % 26] = (char)(now)+'A';
-        if (code[(i + dist + strlen(key)) % 26] > 'Z')
+        if (code[(i + dist + strlen(key)) % 26] != '+')continue; //이미 저장되어있으면 넘김
+        while (alpeh[now] == 1)now++; //저장되어잇으면 넘김 now+1 안저장되어잇는곳 나올때까지 ...
+        code[(i + dist + strlen(key)) % 26] = (char)(now)+'A'; //숫자집어넣음
+        if (code[(i + dist + strlen(key)) % 26] > 'Z') //사실 이 줄은 필요없음 %26 해서..
             code[(i + dist + strlen(key)) % 26] -= 26;
         now++;
     }
-    code[26] = '\0';
+    code[26] = '\0'; //마지막에 꼭 넣기
 
 }
 
